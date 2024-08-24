@@ -32,6 +32,7 @@
             btnClose = new Button();
             btnAddNew = new Button();
             textBox1 = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -71,17 +72,29 @@
             textBox1.Size = new Size(246, 27);
             textBox1.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.Location = new Point(637, 109);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 27);
+            button1.TabIndex = 4;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(btnAddNew);
             Controls.Add(btnClose);
             Controls.Add(dgv);
             Name = "MainForm";
             Text = "MainForm";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -93,5 +106,6 @@
         private Button btnClose;
         private Button btnAddNew;
         private TextBox textBox1;
+        private Button button1;
     }
 }
