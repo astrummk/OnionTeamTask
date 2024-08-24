@@ -42,6 +42,9 @@
             label4 = new Label();
             label5 = new Label();
             txtTaskDescription = new TextBox();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -50,10 +53,13 @@
             dgv.BackgroundColor = Color.White;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.Location = new Point(59, 236);
+            dgv.MultiSelect = false;
             dgv.Name = "dgv";
+            dgv.ReadOnly = true;
             dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(669, 215);
             dgv.TabIndex = 0;
+            dgv.MouseDoubleClick += dgv_MouseDoubleClick;
             // 
             // btnClose
             // 
@@ -79,12 +85,12 @@
             // 
             txtTaskName.Location = new Point(221, 25);
             txtTaskName.Name = "txtTaskName";
-            txtTaskName.Size = new Size(246, 27);
+            txtTaskName.Size = new Size(244, 27);
             txtTaskName.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(637, 109);
+            button1.Location = new Point(17, 481);
             button1.Name = "button1";
             button1.Size = new Size(114, 27);
             button1.TabIndex = 4;
@@ -104,7 +110,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(59, 73);
+            label2.Location = new Point(59, 71);
             label2.Name = "label2";
             label2.Size = new Size(72, 20);
             label2.TabIndex = 6;
@@ -112,15 +118,15 @@
             // 
             // dtpTaskDueDate
             // 
-            dtpTaskDueDate.Location = new Point(221, 68);
+            dtpTaskDueDate.Location = new Point(221, 66);
             dtpTaskDueDate.Name = "dtpTaskDueDate";
-            dtpTaskDueDate.Size = new Size(250, 27);
+            dtpTaskDueDate.Size = new Size(244, 27);
             dtpTaskDueDate.TabIndex = 7;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(62, 104);
+            label3.Location = new Point(59, 104);
             label3.Name = "label3";
             label3.Size = new Size(69, 20);
             label3.TabIndex = 8;
@@ -147,7 +153,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(62, 138);
+            label4.Location = new Point(59, 138);
             label4.Name = "label4";
             label4.Size = new Size(49, 20);
             label4.TabIndex = 10;
@@ -156,7 +162,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(61, 178);
+            label5.Location = new Point(59, 178);
             label5.Name = "label5";
             label5.Size = new Size(116, 20);
             label5.TabIndex = 12;
@@ -166,14 +172,46 @@
             // 
             txtTaskDescription.Location = new Point(221, 178);
             txtTaskDescription.Name = "txtTaskDescription";
-            txtTaskDescription.Size = new Size(247, 27);
+            txtTaskDescription.Size = new Size(244, 27);
             txtTaskDescription.TabIndex = 13;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(649, 59);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(97, 32);
+            btnEdit.TabIndex = 14;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(649, 98);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(97, 32);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(649, 138);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(97, 32);
+            btnCancel.TabIndex = 16;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 520);
+            Controls.Add(btnCancel);
+            Controls.Add(btnDelete);
+            Controls.Add(btnEdit);
             Controls.Add(txtTaskDescription);
             Controls.Add(label5);
             Controls.Add(cboStatus);
@@ -212,5 +250,8 @@
         private Label label4;
         private Label label5;
         private TextBox txtTaskDescription;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Button btnCancel;
     }
 }
