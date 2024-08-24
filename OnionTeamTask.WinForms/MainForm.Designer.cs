@@ -31,8 +31,17 @@
             dgv = new DataGridView();
             btnClose = new Button();
             btnAddNew = new Button();
-            textBox1 = new TextBox();
+            txtTaskName = new TextBox();
             button1 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            dtpTaskDueDate = new DateTimePicker();
+            label3 = new Label();
+            cboCategory = new ComboBox();
+            cboStatus = new ComboBox();
+            label4 = new Label();
+            label5 = new Label();
+            txtTaskDescription = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -40,7 +49,7 @@
             // 
             dgv.BackgroundColor = Color.White;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(54, 161);
+            dgv.Location = new Point(59, 236);
             dgv.Name = "dgv";
             dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(669, 215);
@@ -48,7 +57,7 @@
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(671, 396);
+            btnClose.Location = new Point(684, 477);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(104, 31);
             btnClose.TabIndex = 1;
@@ -64,13 +73,14 @@
             btnAddNew.TabIndex = 2;
             btnAddNew.Text = "Add New";
             btnAddNew.UseVisualStyleBackColor = true;
+            btnAddNew.Click += btnAddNew_Click;
             // 
-            // textBox1
+            // txtTaskName
             // 
-            textBox1.Location = new Point(221, 25);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 27);
-            textBox1.TabIndex = 3;
+            txtTaskName.Location = new Point(221, 25);
+            txtTaskName.Name = "txtTaskName";
+            txtTaskName.Size = new Size(246, 27);
+            txtTaskName.TabIndex = 3;
             // 
             // button1
             // 
@@ -82,13 +92,99 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(59, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Task Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(59, 73);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Task Date";
+            // 
+            // dtpTaskDueDate
+            // 
+            dtpTaskDueDate.Location = new Point(221, 68);
+            dtpTaskDueDate.Name = "dtpTaskDueDate";
+            dtpTaskDueDate.Size = new Size(250, 27);
+            dtpTaskDueDate.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(62, 104);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 20);
+            label3.TabIndex = 8;
+            label3.Text = "Category";
+            // 
+            // cboCategory
+            // 
+            cboCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCategory.FormattingEnabled = true;
+            cboCategory.Location = new Point(221, 101);
+            cboCategory.Name = "cboCategory";
+            cboCategory.Size = new Size(244, 28);
+            cboCategory.TabIndex = 9;
+            // 
+            // cboStatus
+            // 
+            cboStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboStatus.FormattingEnabled = true;
+            cboStatus.Location = new Point(221, 135);
+            cboStatus.Name = "cboStatus";
+            cboStatus.Size = new Size(244, 28);
+            cboStatus.TabIndex = 11;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(62, 138);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 20);
+            label4.TabIndex = 10;
+            label4.Text = "Status";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(61, 178);
+            label5.Name = "label5";
+            label5.Size = new Size(116, 20);
+            label5.TabIndex = 12;
+            label5.Text = "Task Description";
+            // 
+            // txtTaskDescription
+            // 
+            txtTaskDescription.Location = new Point(221, 178);
+            txtTaskDescription.Name = "txtTaskDescription";
+            txtTaskDescription.Size = new Size(247, 27);
+            txtTaskDescription.TabIndex = 13;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 520);
+            Controls.Add(txtTaskDescription);
+            Controls.Add(label5);
+            Controls.Add(cboStatus);
+            Controls.Add(label4);
+            Controls.Add(cboCategory);
+            Controls.Add(label3);
+            Controls.Add(dtpTaskDueDate);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(txtTaskName);
             Controls.Add(btnAddNew);
             Controls.Add(btnClose);
             Controls.Add(dgv);
@@ -105,7 +201,16 @@
         private DataGridView dgv;
         private Button btnClose;
         private Button btnAddNew;
-        private TextBox textBox1;
+        private TextBox txtTaskName;
         private Button button1;
+        private Label label1;
+        private Label label2;
+        private DateTimePicker dtpTaskDueDate;
+        private Label label3;
+        private ComboBox cboCategory;
+        private ComboBox cboStatus;
+        private Label label4;
+        private Label label5;
+        private TextBox txtTaskDescription;
     }
 }
