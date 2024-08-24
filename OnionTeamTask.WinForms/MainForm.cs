@@ -11,7 +11,7 @@ namespace OnionTeamTask.WinForms
 {
     public partial class MainForm : Form
     {
-        public Guid taskGuid;
+        public Guid taskGuid = Guid.Empty;
 
         private readonly ITaskService _taskService;
         private readonly ICategoryService _categoryService;
@@ -89,12 +89,13 @@ namespace OnionTeamTask.WinForms
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            string selCategory = cboCategory.SelectedValue.ToString();
-            string selStatus = cboStatus.SelectedValue.ToString();
-
+            
             ///--------------------------------------------------------
-            if (taskGuid != null)
+            if (taskGuid != Guid.Empty)
             {
+                string selCategory = cboCategory.SelectedValue.ToString();
+                string selStatus = cboStatus.SelectedValue.ToString();
+
                 var taskUpdateDto = new TaskUpdateDto
                 {
                     TaskName = txtTaskName.Text,
@@ -115,12 +116,16 @@ namespace OnionTeamTask.WinForms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (taskGuid != null)
+            if (taskGuid != Guid.Empty)
             {
                 _taskService.DeleteTask(taskGuid);
 
                 CleanForm();
                 ShowList();
+            }
+            else
+            {
+                MessageBox.Show("Select record to edit.");
             }
         }
 
@@ -153,7 +158,7 @@ namespace OnionTeamTask.WinForms
             cboCategory.SelectedValue = fdat.CategoryId;
             cboStatus.SelectedValue = fdat.StatusId;
             txtTaskDescription.Text = fdat.TaskDescription;
-            taskGuid = @fdat.TaskId;
+            taskGuid = fdat.TaskId;
 
         }
 
@@ -163,6 +168,10 @@ namespace OnionTeamTask.WinForms
             return taskDetail != null ? new List<Taskd> { taskDetail } : new List<Taskd>();
         }
 
-        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            CleanForm();
+            ShowList();
+        }
     }
 }
