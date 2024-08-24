@@ -52,7 +52,7 @@ namespace OnionTeamTask.WinForms
         {
             var taskList = _taskService.GetAllTasks();
             var pagedTasks = taskList
-               .OrderBy(t => t.TaskIntId)
+               .OrderByDescending(t => t.TaskIntId)
                .ToList();
             dgv.DataSource = pagedTasks;
 
