@@ -140,33 +140,29 @@ namespace OnionTeamTask.WinForms
 
         private void dgv_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string strListaID = dgv.Rows[dgv.CurrentCellAddress.Y].Cells[0].Value.ToString() as string;
-            Guid gLista = Guid.Parse(strListaID);
+            string strID = dgv.Rows[dgv.CurrentCellAddress.Y].Cells[0].Value.ToString() as string;
+            Guid gId = Guid.Parse(strID);
 
-            List<Taskd> taskd = new List<Taskd>();
+            Taskd taskd1 = _taskService.GetDetailsForTask(gId);
 
-            taskd = GetDetails(gLista);
-
-            var fdat = taskd.FirstOrDefault();
-
-            DateTime date = fdat.TaskDueDate;
+            DateTime date = taskd1.TaskDueDate;
 
             //da = OnionTeamTask.Web.Controllers.TaskvController.DateFormat(date);
 
-            txtTaskName.Text = fdat.TaskName;
+            txtTaskName.Text = taskd1.TaskName;
             dtpTaskDueDate.Value = date;
-            cboCategory.SelectedValue = fdat.CategoryId;
-            cboStatus.SelectedValue = fdat.StatusId;
-            txtTaskDescription.Text = fdat.TaskDescription;
-            taskGuid = fdat.TaskId;
+            cboCategory.SelectedValue = taskd1.CategoryId;
+            cboStatus.SelectedValue = taskd1.StatusId;
+            txtTaskDescription.Text = taskd1.TaskDescription;
+            taskGuid = taskd1.TaskId;
 
         }
 
-        private List<Taskd> GetDetails(Guid id)
-        {
-            var taskDetail = _taskService.GetDetailsForTask(id);
-            return taskDetail != null ? new List<Taskd> { taskDetail } : new List<Taskd>();
-        }
+        //private List<Taskd> GetDetails(Guid id)
+        //{
+        //    var taskDetail = _taskService.GetDetailsForTask(id);
+        //    return taskDetail != null ? new List<Taskd> { taskDetail } : new List<Taskd>();
+        //}
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

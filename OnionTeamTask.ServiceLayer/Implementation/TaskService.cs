@@ -37,7 +37,7 @@ namespace OnionTeamTask.ServiceLayer.Implementation
             {
                 throw new KeyNotFoundException("Task not found");
             }
-
+            
             return task;
         }
 
